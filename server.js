@@ -3,10 +3,6 @@
 // ===================================================
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require('path');
-const htmlRoutes = require("./app/routing/htmlRoutes.js");
-const apiRoutes = require("./app/routing/apiRoutes.js");
-
 // ===================================================
 // EXPRESS CONFIGURATION
 // ===================================================
@@ -15,13 +11,14 @@ const apiRoutes = require("./app/routing/apiRoutes.js");
 const app = express();
 
 // sets the port
-const PORT = 3000;
+const PORT = 8080;
 
 // handles data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(htmlRoutes);
-app.use(apiRoutes);
+
+require("./app/routing/htmlRoutes.js")(app);
+require("./app/routing/apiRoutes.js")(app);
 
 // ===================================================
 // LISTENER

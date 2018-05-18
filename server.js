@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // sets the port
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 // handles data parsing
 app.use(bodyParser.urlencoded({ extended: true }));

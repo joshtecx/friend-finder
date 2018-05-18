@@ -18,6 +18,7 @@ module.exports = function(app) {
         let totalDifference;
         let lowestDifference;
         let newBestFriend;
+        let number = 1000;
         
         
         // console.log(newFriend);
@@ -29,7 +30,11 @@ module.exports = function(app) {
                 // console.log(friendData[i].scores[j]);
                 totalDifference += Math.abs(parseInt(newFriend.scores[j] - friendData[i].scores[j]));
                 // console.log(totalDifference);
-                
+            }
+
+            if(totalDifference < number){
+                number = totalDifference;
+                newBestFriend = friendData[i];
             }
         }
 
